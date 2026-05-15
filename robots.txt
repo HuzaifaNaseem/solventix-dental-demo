@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://solventix-dental-demo.netlify.app/sitemap.xml

@@ -74,6 +74,30 @@ gsap.from('.testimonial', {
     ease: 'power3.out'
 });
 
+// Service cards — staggered reveal
+gsap.from('.service-card', {
+    scrollTrigger: {
+        trigger: '.services-grid',
+        start: 'top 80%',
+    },
+    opacity: 0,
+    y: 30,
+    duration: 0.9,
+    stagger: 0.1,
+    ease: 'power3.out'
+});
+
+// Visit section — reveal
+['.visit-grid', '.visit-trust'].forEach(selector => {
+    gsap.from(selector, {
+        scrollTrigger: { trigger: selector, start: 'top 85%' },
+        opacity: 0,
+        y: 40,
+        duration: 1.1,
+        ease: 'power3.out'
+    });
+});
+
 // Parallax for Hero Image
 gsap.to('.hero-img', {
     scrollTrigger: {
