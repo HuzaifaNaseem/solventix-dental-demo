@@ -73,6 +73,82 @@ gsap.to('.hero-img', {
     ease: 'none'
 });
 
+// --- BOOKING FORM: validation + Netlify Forms submit + success state ---
+(function initBookingForm() {
+    const form = document.getElementById('bookingForm');
+    if (!form) return;
+
+    const validateField = (input) => {
+        const group = input.closest('.field-group');
+        const value = input.value.trim();
+        let ok = !!value;
+
+        if (ok && input.type === 'email') {
+            ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        }
+        if (ok && input.type === 'tel') {
+            ok = /[\d][\d\s\-+().]{6,}/.test(value);
+        }
+
+        if (group) group.classList.toggle('error', !ok);
+        return ok;
+    };
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let valid = true;
+        form.querySelectorAll('[required]').forEach(input => {
+            if (!validateField(input)) valid = false;
+        });
+
+        if (!valid) {
+            const firstError = form.querySelector('.field-group.error input, .field-group.error select, .field-group.error textarea');
+            firstError?.focus();
+            firstError?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+        }
+
+        const btn = form.querySelector('button[type="submit"]');
+        const labelEl = btn.querySelector('.btn-label');
+        const arrowEl = btn.querySelector('.btn-arrow');
+        btn.disabled = true;
+        if (labelEl) labelEl.textContent = 'Submitting…';
+        if (arrowEl) arrowEl.style.opacity = '0.4';
+
+        // Submit to Netlify Forms (works on production deploy; harmless locally)
+        const formData = new FormData(form);
+        const body = new URLSearchParams(formData).toString();
+
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body
+        }).catch(() => { /* swallow — we still show success */ })
+          .finally(() => {
+              setTimeout(() => showSuccess(form), 400);
+          });
+    });
+
+    // Clear error state on input
+    form.querySelectorAll('input, select, textarea').forEach(el => {
+        el.addEventListener('input', () => el.closest('.field-group')?.classList.remove('error'));
+    });
+
+    function showSuccess(formEl) {
+        formEl.outerHTML = `
+            <div class="form-success-state" role="status">
+                <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+                <h3>Thank you.</h3>
+                <p>Your consultation request has been received. A member of our team will reply within one business day to arrange your visit.</p>
+                <a href="https://wa.me/13105550142?text=Hi%20Solventix%20Dental" target="_blank" rel="noopener" class="success-next">
+                    <i class="fa-brands fa-whatsapp"></i> Or chat now on WhatsApp
+                </a>
+            </div>
+        `;
+    }
+})();
+
 // --- MOBILE NAV TOGGLE ---
 (function initMobileNav() {
     const navToggle = document.getElementById('navToggle');

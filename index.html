@@ -163,17 +163,122 @@
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA / Booking -->
     <section id="book" class="cta-section">
         <div class="container">
             <div class="cta-card">
-                <h2>Ready for a Change?</h2>
-                <p>Limited consultations available this month.</p>
-                <form class="elite-form">
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <button type="submit" class="btn-primary-elite">Request Consultation</button>
-                </form>
+                <div class="cta-grid">
+
+                    <!-- LEFT: Heading + direct contact options -->
+                    <div class="cta-left">
+                        <span class="sub-heading">By Appointment</span>
+                        <h2>Begin your <i>consultation.</i></h2>
+                        <p class="cta-lede">A limited number of new patients are accepted each month. Reach us through whichever channel suits you — we reply within one business day.</p>
+
+                        <div class="contact-methods">
+                            <a href="tel:+13105550142" class="contact-method cm-call">
+                                <span class="cm-icon"><i class="fa-solid fa-phone"></i></span>
+                                <span class="cm-info">
+                                    <span class="cm-label">Call us</span>
+                                    <span class="cm-value">+1 (310) 555-0142</span>
+                                </span>
+                                <span class="cm-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                            </a>
+
+                            <a href="https://wa.me/13105550142?text=Hi%20Solventix%20Dental%20%E2%80%94%20I%27d%20like%20to%20schedule%20a%20consultation" target="_blank" rel="noopener" class="contact-method cm-whatsapp">
+                                <span class="cm-icon"><i class="fa-brands fa-whatsapp"></i></span>
+                                <span class="cm-info">
+                                    <span class="cm-label">WhatsApp</span>
+                                    <span class="cm-value">Chat with us instantly</span>
+                                </span>
+                                <span class="cm-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                            </a>
+
+                            <a href="mailto:hello@solventixdental.com?subject=Consultation%20Request" class="contact-method cm-email">
+                                <span class="cm-icon"><i class="fa-solid fa-envelope"></i></span>
+                                <span class="cm-info">
+                                    <span class="cm-label">Email</span>
+                                    <span class="cm-value">hello@solventixdental.com</span>
+                                </span>
+                                <span class="cm-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                            </a>
+                        </div>
+
+                        <div class="cta-hours">
+                            <div class="hours-row"><span>Mon — Thu</span><em>8:00a — 6:00p</em></div>
+                            <div class="hours-row"><span>Friday</span><em>8:00a — 4:00p</em></div>
+                            <div class="hours-row"><span>Saturday</span><em>9:00a — 2:00p</em></div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Detailed booking form -->
+                    <div class="cta-right">
+                        <form name="booking" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="booking-form" id="bookingForm" novalidate>
+                            <input type="hidden" name="form-name" value="booking">
+                            <p class="hp-field"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+
+                            <h3 class="form-title">Request your consultation</h3>
+
+                            <div class="field-group">
+                                <label class="field-label" for="bf-name">Full name</label>
+                                <input type="text" id="bf-name" name="name" required autocomplete="name" placeholder="Your full name">
+                            </div>
+
+                            <div class="field-row">
+                                <div class="field-group">
+                                    <label class="field-label" for="bf-email">Email</label>
+                                    <input type="email" id="bf-email" name="email" required autocomplete="email" placeholder="you@example.com">
+                                </div>
+                                <div class="field-group">
+                                    <label class="field-label" for="bf-phone">Phone</label>
+                                    <input type="tel" id="bf-phone" name="phone" required autocomplete="tel" placeholder="+1 (555) 000-0000">
+                                </div>
+                            </div>
+
+                            <div class="field-row">
+                                <div class="field-group">
+                                    <label class="field-label" for="bf-treatment">Treatment</label>
+                                    <select id="bf-treatment" name="treatment">
+                                        <option>Cosmetic consultation</option>
+                                        <option>Porcelain veneers</option>
+                                        <option>Dental implants</option>
+                                        <option>Invisalign / aligners</option>
+                                        <option>Whitening</option>
+                                        <option>General &amp; hygiene</option>
+                                        <option>Emergency</option>
+                                        <option>Not sure yet</option>
+                                    </select>
+                                </div>
+                                <div class="field-group">
+                                    <label class="field-label" for="bf-time">Preferred time</label>
+                                    <select id="bf-time" name="time">
+                                        <option>Morning (8a — 12p)</option>
+                                        <option>Afternoon (12p — 4p)</option>
+                                        <option>Evening (4p — 6p)</option>
+                                        <option>Saturday only</option>
+                                        <option>I'm flexible</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <label class="field-label" for="bf-message">A few words about your goals <span>(optional)</span></label>
+                                <textarea id="bf-message" name="message" rows="3" placeholder="Tell us what you'd like to change…"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-primary-elite btn-full">
+                                <span class="btn-label">Request consultation</span>
+                                <span class="btn-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                            </button>
+
+                            <p class="form-disclaimer">
+                                <i class="fa-solid fa-lock"></i>
+                                Your information is encrypted and never shared. We reply within one business day.
+                            </p>
+                        </form>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>

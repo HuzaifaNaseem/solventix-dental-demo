@@ -526,7 +526,10 @@ h1 i {
     letter-spacing: 2px;
 }
 
-/* CTA Card */
+/* ==========================================================================
+   CTA / BOOKING — 2-col: contact methods + detailed form
+   ========================================================================== */
+
 .cta-section {
     padding: 120px 0;
     background: var(--bg-alt);
@@ -534,32 +537,324 @@ h1 i {
 
 .cta-card {
     background: white;
-    padding: 80px;
+    padding: 70px;
     border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.05);
+    box-shadow: 0 40px 80px rgba(15,23,42,0.06);
+    border: 1px solid #f1f5f9;
 }
 
-.cta-card h2 {
+.cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 70px;
+    align-items: stretch;
+}
+
+/* Left column */
+.cta-left { display: flex; flex-direction: column; }
+
+.cta-left h2 {
     font-family: var(--serif);
-    font-size: 65px;
-    margin-bottom: 20px;
+    font-size: clamp(2.6rem, 4.6vw, 3.8rem);
+    line-height: 1.0;
+    margin-bottom: 22px;
+    letter-spacing: -0.01em;
+    color: var(--text);
 }
 
-.elite-form {
-    max-width: 600px;
-    margin: 40px auto 0;
+.cta-left h2 i {
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.cta-lede {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 32px;
+    max-width: 440px;
+}
+
+.contact-methods {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
 }
 
-.elite-form input {
-    flex: 1;
-    padding: 18px 25px;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 8px;
+.contact-method {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    background: white;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-method:hover {
+    border-color: var(--text);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -10px rgba(15, 23, 42, 0.15);
+}
+
+.contact-method:hover .cm-arrow { transform: translateX(4px); }
+
+.cm-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.cm-call .cm-icon       { background: var(--accent-soft); color: var(--accent); }
+.cm-whatsapp .cm-icon   { background: #DCFCE7;          color: #15803d; }
+.cm-email .cm-icon      { background: #FEF3C7;          color: #B45309; }
+
+.cm-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+
+.cm-label {
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.cm-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cm-arrow {
+    color: var(--text-muted);
+    font-size: 13px;
+    transition: transform 0.3s ease;
+}
+
+/* Hours mini-table */
+.cta-hours {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+}
+
+.hours-row span {
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.hours-row em {
+    font-style: normal;
+    color: var(--text);
+    font-weight: 500;
+    font-family: var(--serif);
     font-size: 15px;
 }
+
+/* Right column — form */
+.booking-form {
+    background: var(--bg-alt);
+    padding: 36px 32px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border: 1px solid #f1f5f9;
+}
+
+.form-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.field-label {
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.field-label span {
+    text-transform: none;
+    letter-spacing: 0.2px;
+    color: #94a3b8;
+    margin-left: 6px;
+    font-weight: 500;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    background: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 13px 15px;
+    font-size: 14.5px;
+    font-family: var(--sans);
+    color: var(--text);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+    color: #94a3b8;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+    outline: none;
+    border-color: var(--text);
+    box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.06);
+}
+
+.booking-form textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+.field-group.error input,
+.field-group.error select,
+.field-group.error textarea {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.btn-primary-elite {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 6px;
+    padding: 16px 28px;
+}
+
+.btn-arrow {
+    transition: transform 0.3s ease;
+    display: inline-flex;
+}
+
+.btn-primary-elite:hover .btn-arrow { transform: translateX(3px); }
+
+.form-disclaimer {
+    font-size: 11.5px;
+    color: #94a3b8;
+    text-align: center;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.form-disclaimer i { font-size: 10px; }
+
+/* Success state */
+.form-success-state {
+    text-align: center;
+    padding: 50px 22px;
+    background: var(--bg-alt);
+    border-radius: 14px;
+    border: 1px solid #f1f5f9;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #DCFCE7;
+    color: #15803d;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 22px;
+    font-size: 26px;
+}
+
+.form-success-state h3 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    margin-bottom: 12px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.form-success-state p {
+    color: var(--text-muted);
+    max-width: 360px;
+    margin: 0 auto 20px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.success-next {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid var(--text);
+    border-radius: 999px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.success-next:hover { background: var(--text); color: white; }
 
 /* Footer */
 .footer {
@@ -734,19 +1029,18 @@ h1 i {
         align-items: flex-start;
     }
 
-    /* CTA form — stack */
+    /* CTA — stack booking grid */
     .cta-section { padding: 80px 0; }
-    .cta-card { padding: 50px 30px; border-radius: 16px; }
+    .cta-card { padding: 44px 32px; border-radius: 16px; }
 
-    .elite-form {
-        flex-direction: column;
-        gap: 14px;
+    .cta-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
 
-    .elite-form input,
-    .elite-form button {
-        width: 100%;
-    }
+    .cta-hours { margin-top: 8px; }
+
+    .booking-form { padding: 30px 24px; }
 
     .btn-primary-elite {
         padding: 16px 28px;
@@ -850,15 +1144,27 @@ h1 i {
     .results-card { border-radius: 8px; }
 
     /* CTA */
-    .cta-card {
-        padding: 40px 22px;
-        border-radius: 14px;
-    }
-    .cta-card p { font-size: 15px; }
-    .elite-form input {
-        padding: 16px 18px;
+    .cta-card { padding: 32px 20px; border-radius: 14px; }
+    .cta-lede { font-size: 15px; }
+
+    .contact-method { padding: 14px 16px; gap: 14px; }
+    .cm-icon { width: 38px; height: 38px; font-size: 14px; }
+    .cm-value { font-size: 14px; }
+    .cm-label { font-size: 10px; letter-spacing: 1.5px; }
+
+    .booking-form { padding: 24px 18px; }
+    .field-row { grid-template-columns: 1fr; gap: 16px; }
+    .form-title { font-size: 1.25rem; }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+        padding: 14px 14px;
         font-size: 15px;
     }
+
+    .form-success-state { padding: 36px 18px; }
+    .form-success-state h3 { font-size: 1.5rem; }
 
     /* Footer */
     .footer-flex {
