@@ -1646,8 +1646,56 @@ h1 i {
     }
 
     /* Hero — keep editorial left-align, scale down */
-    .hero { height: auto; min-height: 92vh; padding: 100px 0 60px; }
+    .hero { height: auto; min-height: 72vh; padding: 80px 0 50px; }
     .hero-content { max-width: 100%; }
+
+    /* MOBILE IMAGE DISCIPLINE — stop the big-square problem.
+       Force tighter aspect ratios with object-fit so giant 1024x1024
+       photos don't dominate the viewport. */
+    .why-image,
+    .exp-image {
+        max-width: 100%;
+        margin: 0 auto;
+        aspect-ratio: 4 / 5;
+        max-height: 62vh;
+        overflow: hidden;
+        border-radius: 12px;
+        position: relative;
+    }
+
+    .why-image picture,
+    .exp-image picture {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .why-image img,
+    .exp-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .why-image img { object-position: center 30%; }
+    .exp-image img { object-position: center 25%; }
+
+    .results-card picture {
+        display: block;
+        width: 100%;
+        aspect-ratio: 5 / 4;
+        max-height: 50vh;
+        overflow: hidden;
+    }
+
+    .results-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
 
     h1 {
         font-size: clamp(40px, 8vw, 72px);
@@ -1681,10 +1729,10 @@ h1 i {
         grid-row: 1;
     }
 
-    /* Why / Experience — stack */
+    /* Why / Experience — stack, tighter on mobile */
     .why-container, .experience-container {
         flex-direction: column;
-        gap: 50px;
+        gap: 32px;
     }
 
     .experience-container { flex-direction: column-reverse; }
@@ -1776,19 +1824,27 @@ h1 i {
     .hero-actions {
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
+        gap: 12px;
+        margin-bottom: 0;
     }
     .btn-primary-elite {
         width: 100%;
         text-align: center;
-        padding: 16px 24px;
+        padding: 15px 22px;
     }
     .btn-text { width: 100%; text-align: left; }
+
+    .hero-text p { margin-bottom: 24px; }
+
+    .section-head { margin-bottom: 32px; }
+    .section-lede { font-size: 14.5px; margin-top: 12px; }
+
+    .stats-mini { margin-top: 22px; gap: 24px; }
 
     /* Sections */
     .why-us, .experience-section,
     .results-section, .cta-section,
-    .gallery-break { padding: 70px 0; }
+    .gallery-break { padding: 50px 0; }
 
     /* Gallery — single column on phones */
     .gallery-grid {
@@ -1817,17 +1873,29 @@ h1 i {
 
     /* Why us */
     .why-content h2, .exp-text h2 {
-        font-size: clamp(2rem, 7vw, 2.6rem);
+        font-size: clamp(2rem, 7vw, 2.4rem);
+        margin-bottom: 14px;
     }
 
-    /* Credentials list stacks on phones */
+    .why-content p, .exp-text p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* Credentials list — compact on phones with inline label/value */
+    .exp-credentials { margin-bottom: 24px; }
     .exp-credentials li {
         grid-template-columns: 1fr;
-        gap: 6px;
-        padding: 14px 0;
+        gap: 3px;
+        padding: 10px 0;
     }
+    .cred-label { font-size: 10px; letter-spacing: 1.8px; }
+    .cred-value { font-size: 1rem; }
 
-    .cred-value { font-size: 1.05rem; }
+    .exp-lede { margin-bottom: 22px; }
+
+    .doctor-portrait-tag, .exp-image-tag { padding: 50px 18px 14px; }
+    .tag-name { font-size: 1.15rem; }
 
     /* Doctor name tag scales down */
     .exp-image-tag {
@@ -1856,19 +1924,20 @@ h1 i {
     .section-head h2 { font-size: clamp(2rem, 7vw, 2.8rem); }
     .results-card { border-radius: 8px; }
 
-    /* Services — single column on phone */
-    .services-section { padding: 60px 0; }
-    .services-grid { grid-template-columns: 1fr; gap: 14px; }
-    .service-card { padding: 26px 22px 20px; border-radius: 12px; }
-    .service-card h3 { font-size: 1.3rem; }
-    .sc-foot {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-    }
+    /* Services — single column on phone, compact cards */
+    .services-section { padding: 50px 0; }
+    .services-grid { grid-template-columns: 1fr; gap: 12px; }
+    .service-card { padding: 22px 20px 18px; border-radius: 12px; }
+    .service-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .service-card > p { font-size: 14.5px; margin-bottom: 16px; }
+    .sc-head { margin-bottom: 16px; }
+    .sc-icon { width: 40px; height: 40px; font-size: 15px; }
+    .sc-foot { padding-top: 14px; gap: 12px; }
+    .sc-price { font-size: 10.5px; }
+    .sc-visits { font-size: 12px; }
 
     /* Visit — phone tightening */
-    .visit-section { padding: 60px 0; }
+    .visit-section { padding: 50px 0; }
     .visit-map { min-height: 280px; border-radius: 12px; }
     .visit-map iframe { min-height: 280px; }
     .visit-map-cta { padding: 8px 12px; font-size: 10.5px; }
@@ -1880,7 +1949,7 @@ h1 i {
     .vt-item span { font-size: 12.5px; }
 
     /* FAQ — phone tightening */
-    .faq-section { padding: 60px 0; }
+    .faq-section { padding: 50px 0; }
     .faq-item summary {
         padding: 22px 4px 22px 0;
         font-size: 1.18rem;
@@ -1894,7 +1963,7 @@ h1 i {
     .faq-phone-info strong { font-size: 14px; }
 
     /* Testimonials — phone tightening */
-    .testimonials-section { padding: 60px 0; }
+    .testimonials-section { padding: 50px 0; }
     .testimonial { padding: 24px 22px 20px; border-radius: 12px; }
     .t-quote { font-size: 1.05rem; margin-bottom: 22px; }
     .t-stars { font-size: 14px; margin-bottom: 16px; }
