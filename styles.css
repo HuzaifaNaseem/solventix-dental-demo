@@ -123,11 +123,19 @@ h1 i, h2 i { font-style: italic; font-weight: 300; }
 
 .logo {
     font-family: var(--serif);
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 3px;
     color: var(--text);
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    flex-shrink: 0;
+    border-radius: 9px;
 }
 
 .logo span { color: var(--accent); font-weight: 300; }
