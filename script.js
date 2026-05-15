@@ -86,6 +86,22 @@ gsap.to('.hero-img', {
     ease: 'none'
 });
 
+// --- FAQ ACCORDION: single-open behavior ---
+(function initFaqAccordion() {
+    const items = document.querySelectorAll('.faq-item');
+    if (!items.length) return;
+
+    items.forEach(item => {
+        item.addEventListener('toggle', () => {
+            if (item.open) {
+                items.forEach(other => {
+                    if (other !== item) other.open = false;
+                });
+            }
+        });
+    });
+})();
+
 // --- BOOKING FORM: validation + Netlify Forms submit + success state ---
 (function initBookingForm() {
     const form = document.getElementById('bookingForm');
