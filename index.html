@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMINA DENTAL | Elite Dentistry Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">LUMINA<span>DENTAL</span></a>
+            <div class="nav-links">
+                <a href="#results">Results</a>
+                <a href="#experience">Experience</a>
+                <a href="#services">Services</a>
+            </div>
+            <a href="#book" class="btn-enquire">BOOK CONSULTATION</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="dental_hero_image.png" alt="Elite Clinic Interior" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="eyebrow">Excellence in Modern Dentistry</span>
+                <h1>Crafting <i>Timeless</i> Smiles.</h1>
+                <p>A private dental practice dedicated to the art and science of a perfect smile. Where medical precision meets artistic vision.</p>
+                <div class="hero-actions">
+                    <a href="#book" class="btn-primary-elite">Schedule a Visit</a>
+                    <a href="#results" class="btn-text">View Results <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / Experience Moment -->
+    <section class="gallery-break">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="reception_extra.jpg" alt="Luxury Reception">
+                    <div class="gallery-caption">Boutique Environment</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="specialist_extra.jpg" alt="Dental Specialist">
+                    <div class="gallery-caption">In-House Lab</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="veneer_macro_extra.jpg" alt="Porcelain Craft">
+                    <div class="gallery-caption">Bespoke Veneers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results-section">
+        <div class="container">
+            <div class="section-head text-center">
+                <h2>Visible Transformations</h2>
+                <p>Photographs of actual patients. No retouching.</p>
+            </div>
+            <div class="results-container">
+                <div class="results-card">
+                    <img src="dental_results.png" alt="Before and After">
+                    <div class="results-meta">
+                        <span>Case No. 412</span>
+                        <span>10 Porcelain Veneers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="container why-container">
+            <div class="why-image">
+                <img src="dental_smile.png" alt="Perfect Smile">
+                <div class="floating-badge">99% Satisfaction</div>
+            </div>
+            <div class="why-content">
+                <span class="sub-heading">The Lumina Difference</span>
+                <h2>A Smile Built on <i>Trust.</i></h2>
+                <p>We combine advanced technology with a human touch to ensure every visit is comfortable, transparent, and transformative.</p>
+                <div class="stats-mini">
+                    <div class="stat">
+                        <span class="num">15+</span>
+                        <span class="label-s">Years</span>
+                    </div>
+                    <div class="stat">
+                        <span class="num">5k+</span>
+                        <span class="label-s">Smiles</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="experience-section">
+        <div class="container experience-container">
+            <div class="exp-text">
+                <h2>Expert Care.</h2>
+                <p>Led by world-class specialists dedicated to the highest standards of clinical excellence.</p>
+                <a href="#book" class="btn-primary-elite">MEET THE DOCTORS</a>
+            </div>
+            <div class="exp-image">
+                <img src="dental_doctor_image.png" alt="Our Specialist">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="book" class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Ready for a Change?</h2>
+                <p>Limited consultations available this month.</p>
+                <form class="elite-form">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <button type="submit" class="btn-primary-elite">Request Consultation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-flex">
+            <div class="footer-logo">LUMINA<span>DENTAL</span></div>
+            <div class="footer-copy">© 2026 Designed by Solventix</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
