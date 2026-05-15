@@ -47,7 +47,7 @@ heroTl.from('.eyebrow', { opacity: 0, y: 20, duration: 0.8, delay: 0.5 })
       .from('.hero-actions', { opacity: 0, y: 20, duration: 0.8 }, '-=0.7');
 
 // Section Reveal Animations
-const reveals = ['.gallery-grid', '.section-head', '.results-card', '.why-container', '.experience-container', '.cta-card'];
+const reveals = ['.gallery-grid', '.section-head', '.results-card', '.why-container', '.experience-container', '.cta-card', '.reviews-strip'];
 reveals.forEach(selector => {
     gsap.from(selector, {
         scrollTrigger: {
@@ -59,6 +59,19 @@ reveals.forEach(selector => {
         duration: 1.2,
         ease: 'power3.out'
     });
+});
+
+// Testimonial cards — staggered reveal
+gsap.from('.testimonial', {
+    scrollTrigger: {
+        trigger: '.testimonials-grid',
+        start: 'top 80%',
+    },
+    opacity: 0,
+    y: 30,
+    duration: 0.9,
+    stagger: 0.12,
+    ease: 'power3.out'
 });
 
 // Parallax for Hero Image

@@ -527,6 +527,138 @@ h1 i {
 }
 
 /* ==========================================================================
+   TESTIMONIALS — restrained, editorial
+   ========================================================================== */
+
+.testimonials-section {
+    padding: 120px 0;
+    background: white;
+}
+
+.testimonials-section .section-head { margin-bottom: 48px; }
+
+.section-lede {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 18px auto 0;
+    line-height: 1.65;
+}
+
+.reviews-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding: 22px 36px;
+    background: var(--bg-alt);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    margin-bottom: 56px;
+}
+
+.review-source {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.review-source i {
+    color: var(--accent);
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.review-source strong { font-weight: 600; }
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+}
+
+.testimonial {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 32px 30px 26px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 44px -22px rgba(15, 23, 42, 0.18);
+    border-color: transparent;
+}
+
+.t-stars {
+    color: #D97706;
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.t-quote {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 26px;
+    flex: 1;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.t-source {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+}
+
+.t-meta { display: flex; flex-direction: column; gap: 3px; }
+
+.t-meta strong {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.t-meta span {
+    font-size: 10.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.t-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.t-badge i {
+    color: var(--accent);
+    font-size: 13px;
+}
+
+/* ==========================================================================
    CTA / BOOKING — 2-col: contact methods + detailed form
    ========================================================================== */
 
@@ -907,12 +1039,19 @@ h1 i {
 @media (max-width: 1024px) {
     .why-us, .experience-section,
     .results-section, .cta-section,
-    .gallery-break { padding: 90px 0; }
+    .gallery-break, .testimonials-section { padding: 90px 0; }
 
     .why-container, .experience-container { gap: 50px; }
     .cta-card { padding: 60px 40px; }
 
     .hero-text p { font-size: 17px; }
+
+    /* Testimonials — keep 3-col but tighten */
+    .testimonials-grid { gap: 20px; }
+    .testimonial { padding: 28px 24px 22px; }
+    .t-quote { font-size: 1.08rem; }
+    .reviews-strip { padding: 20px 28px; gap: 18px; }
+    .review-source { font-size: 13px; }
 }
 
 /* ----- Tablet portrait — hamburger menu kicks in here ----- */
@@ -1029,6 +1168,22 @@ h1 i {
         align-items: flex-start;
     }
 
+    /* Testimonials — single column on tablet */
+    .testimonials-section { padding: 80px 0; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+    .testimonial { padding: 28px 26px 24px; }
+    .t-quote { font-size: 1.12rem; }
+
+    .reviews-strip {
+        padding: 18px 22px;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-bottom: 36px;
+    }
+    .review-source { font-size: 13px; }
+    .review-source i { font-size: 15px; }
+
     /* CTA — stack booking grid */
     .cta-section { padding: 80px 0; }
     .cta-card { padding: 44px 32px; border-radius: 16px; }
@@ -1142,6 +1297,27 @@ h1 i {
     /* Results */
     .section-head h2 { font-size: clamp(2rem, 7vw, 2.8rem); }
     .results-card { border-radius: 8px; }
+
+    /* Testimonials — phone tightening */
+    .testimonials-section { padding: 60px 0; }
+    .testimonial { padding: 24px 22px 20px; border-radius: 12px; }
+    .t-quote { font-size: 1.05rem; margin-bottom: 22px; }
+    .t-stars { font-size: 14px; margin-bottom: 16px; }
+
+    .reviews-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 18px 20px;
+        margin-bottom: 28px;
+    }
+    .review-source { width: 100%; }
+
+    .t-source {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
 
     /* CTA */
     .cta-card { padding: 32px 20px; border-radius: 14px; }
